@@ -1,25 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {Component} from 'react'
+// import Header from './components/Header'
+import MainContainer from './containers/MainContainer'
+import LoginForm from './components/LoginForm'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state={
+    visitors:[],
+    currentVisitor: null,
+    loggedIn:false
+  }
+
+  componentDidMount(){
+    fetch("http://localhost:3000/visitors")
+     .then((resp) => resp.json())
+     .then((visitors) => this.setState({visitors}))
+  }
+
+  //if a user is logged in, show the main container, else show log in page
+  logInVisitor = (username) => {
+    let current = this.state.visitors.find(
+        (visitor) => visitor.username === username
+    );
+    this.setState({ currentVisitor: current, loggedIn:true });
+};
+   logOutVisitor = () =>{
+     this.setState({
+       currentVisitor:null,
+     })
+   }
+
+  render() {
+    return (
+      <div>
+        {this.state.currentVisitor ? <MainContainer currentVisitor={this.state.currentVisitor} logOutVisitor={this.logOutVisitor}/> : <LoginForm currentVisitor={this.state.currentVisitor} logInVisitor={this.logInVisitor}/>}
+       
+      </div>
+    );
+  }
 }
 
 export default App;
