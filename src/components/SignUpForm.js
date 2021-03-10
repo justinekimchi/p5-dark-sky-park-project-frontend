@@ -10,17 +10,17 @@ class SignUpForm extends React.Component{
     
     
 
-    handleUsernameChange = (e) => {
-		this.setState({
-			username: e.target.value,
-		});
-	}
+  //   handleUsernameChange = (e) => {
+	// 	this.setState({
+	// 		username: e.target.value,
+	// 	});
+	// }
 
-    handlePasswordChange = (e) => {
-		this.setState({
-			password: e.target.value,
-		});
-	}
+  //   handlePasswordChange = (e) => {
+	// 	this.setState({
+	// 		password: e.target.value,
+	// 	});
+	// }
 
      handleSubmit=(e)=>{
         console.log("form submitted")
@@ -28,16 +28,23 @@ class SignUpForm extends React.Component{
       }
 
       handleChange=(e)=>{
-        console.log("handle Change", e)
+        // console.log("handle Change", e)
+        this.setState({
+          [e.target.name]: e.target.value
+        })
       }
+
+
 
 
     render(){
         return(
             <form onSubmit={this.handleSubmit} >
-			<input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange} required/>
+            <h1>Please register with a username and password</h1>
+
+			      <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange} required/> <br></br>
 			
-            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required/>
+            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} required/><br></br>
 
 
 

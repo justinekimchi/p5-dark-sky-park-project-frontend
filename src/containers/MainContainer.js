@@ -13,6 +13,7 @@ export default class MainContainer extends Component {
       darkSkyParks: [],
       selectedDarkSkyParks:[],
       search:""
+      
  
     }
  
@@ -24,6 +25,7 @@ export default class MainContainer extends Component {
        .then((darkSkyParks) => this.setState({darkSkyParks}))
  }
 
+ 
  render(){
      return(
     <Router>
@@ -47,7 +49,7 @@ export default class MainContainer extends Component {
                         />
                     </div>
                     <Route exact path="/bucketlist_locations" render={(props)=>(
-                         <BucketlistLocationContainer {...props} currentVisitor={this.props.currentVisitor}/>
+                         <BucketlistLocationContainer {...props} handleVisitToggle={this.props.handleVisitToggle} currentVisitor={this.props.currentVisitor}/>
                     )}
                        
                     />

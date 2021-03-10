@@ -31,10 +31,40 @@ class App extends Component {
      })
    }
 
+   handleVisitToggle=(location)=>{
+    // let visited = this.state.currentVisitor.bucketlist_locations.find((bl)=> bl.dark_sky_park_id === location.id)
+    
+    // visited.visited = !visited.visited
+    location.visited = !location.visited
+
+    // let updatedVisitor = {
+    //   ...this.state.currentVisitor,
+    //   bucketlist_locations: this.state.currentVisitor.bucketlist_locations.map((bl)=> bl.id === visited.id ? visited : bl)
+    //  }
+    //  console.log(updatedVisitor)
+
+    let reqPack={}
+    reqPack.method ="PATCH"
+    reqPack.headers={ "Content-Type": "application/json" };
+    reqPack.body = JSON.stringify(location)
+
+    fetch(`http://localhost:3000/bucketlist_locations/${location.id}`, reqPack)
+     .then(res=>res.json())
+     .then(currentVisitor=>this.setState({currentVisitor}))
+
+ }
+
   render() {
     return (
       <div>
-        {this.state.currentVisitor ? <MainContainer currentVisitor={this.state.currentVisitor} logOutVisitor={this.logOutVisitor}/> : <LoginForm currentVisitor={this.state.currentVisitor} logInVisitor={this.logInVisitor}/>}
+        {this.state.currentVisitor ? 
+        <MainContainer 
+        handleVisitToggle={this.handleVisitToggle} 
+        currentVisitor={this.state.currentVisitor} 
+        logOutVisitor={this.logOutVisitor}/> 
+        : <LoginForm 
+        currentVisitor={this.state.currentVisitor} 
+        logInVisitor={this.logInVisitor}/>}
        
       </div>
     );
