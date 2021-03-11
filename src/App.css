@@ -1,38 +1,108 @@
 /* .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+} */
+
+body {
+    /* background-color: #282c34; */
+    /* background-image: url("https://img1.goodfon.com/wallpaper/nbig/7/d7/zapadnaya-avstraliya.jpg"); */
+    background-image: url("https://qray.com/blog/wp-content/uploads/2014/09/1.jpg");
+    /* background-image: url("http://hdqwalls.com/download/1/cloud-landscape-milky-way-nature-night-panorama-sky-starry-sky-stars-17.jpg"); */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: white;
+    /* padding: 40px; */
+    font-family: Palatino;
+    /* font-family: Fantasy; */
+    font-color: white;
+    text-align: center;
+}
+
+.navlink {
+    color: white;
+    justify-content: center;
+}
+
+.login-page {
+    font-size: 30px;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    background-color: #8c657b;
+    top: 0;
+    width: 100%;
+    opacity: 72%;
+    position: fixed;
+}
+
+/* .nav-items {
+    display: flex;
+
+    color: white;
+} */
+
+.dark-sky-park-title {
+    margin-top: 90px;
+}
+
+.bucketlist-title {
+    margin-top: 90px;
+}
+
+.about-section {
+    margin-top: 90px;
+}
+.log-out-button {
+    top: 10px;
+    right: 20px;
+    display: flex;
+    position: absolute;
+}
+
+.lg-button {
+    border-radius: 50px;
+    background-color: #ffa436;
+    border-style: none;
+}
+
+/* .login-page{
+  background-image: url('https://hdqwalls.com/download/1/badlands-national-park-4k-h0.jpg');
 } */

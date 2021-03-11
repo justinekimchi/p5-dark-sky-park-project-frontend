@@ -1,53 +1,55 @@
-import React from 'react'
+import React from "react";
 // import BucketlistLocationModal from './BucketlistLocationModal'
 
 class BucketlistLocation extends React.Component {
-    
-    // exitModal =() =>{
-    //     this.setState({modal:false}, () => {
-    //         // console.log(this.state, "state updated")
-    //     }
-    //         )
-    // }
+    state = {
+        isChecked: this.props.bucketlist[0].visited,
+    };
 
-
-   
-    
-
-    render(){
-    return (
-        <div>
-
-            <div className="card" id={this.props.darkSkyPark.id}>
-                <h3>{this.props.darkSkyPark.name}</h3>
-           <img
+    render() {
+        return (
+            <div>
+                <div className="card" id={this.props.darkSkyPark.id}>
+                    <h3>{this.props.darkSkyPark.name}</h3>
+                    <img
                         className="location"
-                        style={{width:'500px'}}
+                        style={{ width: "500px" }}
                         src={this.props.darkSkyPark.img_url}
                         alt={this.props.darkSkyPark.name}
                         // onClick={()=>this.setState({modal:true})}
-                        >
-                        </img>
-            </div>
-            <div class="check-box">
-                <label>
-                <input type="checkbox" checked={this.props.bucketlist[0].visited} onChange={()=>this.props.handleVisitToggle(this.props.bucketlist[0])}/>Visited
-                </label>
-                
-            </div>
-            <button onClick={()=>this.props.handleDelete(this.props.darkSkyPark)}>Remove From My List</button>
-            {/* {this.state.modal ? (
-                <div>
-                    <BucketlistLocationModal
-                        darkSkyPark={this.props.darkSkyPark}
-                        exitModal={this.exitModal}
-                        currentVisitor={this.props.currentVisitor}
-                    />
+                    ></img>
+                    <h4>
+                        {this.props.darkSkyPark.city},
+                        {this.props.darkSkyPark.state}
+                    </h4>
                 </div>
-            ) :null } */}
-        </div>
-     )
+                <div class="check-box">
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={this.state.isChecked}
+                            onChange={() => {
+                                this.setState({
+                                    isChecked: !this.state.isChecked,
+                                });
+                                this.props.handleVisitToggle(
+                                    this.props.bucketlist[0]
+                                );
+                            }}
+                        />
+                        Visited
+                    </label>
+                </div>
+                <button
+                    onClick={() =>
+                        this.props.handleDelete(this.props.bucketlist[0])
+                    }
+                >
+                    Remove From My List
+                </button>
+            </div>
+        );
     }
 }
 
-export default BucketlistLocation
+export default BucketlistLocation;
